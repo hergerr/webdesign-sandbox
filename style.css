@@ -1,0 +1,10 @@
+.sample{
+    max-width: 1000px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#but{
+    display: block;
+    margin: 20px auto;
+}
