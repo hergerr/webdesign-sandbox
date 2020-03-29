@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
+<title>Zadanie 1</title>
 </head>
 
 <body>
-    <form class="sample">
+    <div class="sample">
         <p>Name: </p><input id="name">
-        <p>Last name: </p><input id="last_name">
+        <p>Last name: </p><input id="lastName">
         <p>Phone number: </p><input id="phone">
         <p>Birth date: </p><input id="birth">
         <p>Email address: </p><input id='email'>
         <p>Login: </p><input id="login">
-        <p>Password</p><input id="password">
-        <input id="but" type="submit" value="OK">
-    </form>
+        <p>Password: </p><input type="password" id="password">
+        <p>Confirm password: </p><input type="password" id="password-confirm">
+        <input id="but" type="submit" value="OK" onclick="validateForm()">
+    </div>
+
+    <script src="script.js"></script>
 </body>
