@@ -1,3 +1,21 @@
+.navbar {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.navbar li {
+    display: block;
+    float: left;
+    margin: 15px;
+}
+
+.navbar li a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
 .sample {
     max-width: 1000px;
     margin: 100px auto 10px auto;
@@ -13,6 +31,10 @@
     flex-direction: row;
     text-align: center;
     justify-content: center;
+}
+
+h1 {
+    text-align: center;
 }
 
 .row input {
