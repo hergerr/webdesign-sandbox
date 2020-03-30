@@ -6,49 +6,52 @@
 </head>
 
 <body>
-    <div class="sample">
+    <form class="sample">
 
         <div class="row">
-            <p>Name: </p><input id="name">
-            <p class="info-name"></p>
+            <p>Name (ex: John): </p><input id="name">
+            <p id="info-name"></p>
         </div>
 
         <div class="row">
-            <p>Last name: </p><input id="last-name">
-            <p class="info-last-name"></p>
+            <p>Last name (ex: Fish): </p><input id="last-name">
+            <p id="info-last-name"></p>
         </div>
 
         <div class="row">
-            <p>Phone number: </p><input id="phone">
-            <p class="info-phone"></p>
+            <p>Phone number (ex: +48123456789): </p><input id="phone">
+            <p id="info-phone"></p>
         </div>
 
         <div class="row">
-            <p>Birth date: </p><input id="birth">
-            <p class="info-birth"></p>
+            <p>Birth date (ex: 29.09.1988): </p><input id="birth">
+            <p id="info-birth"></p>
         </div>
 
         <div class="row">
-            <p>Email address: </p><input id='email'>
-            <p class="info-email"></p>
+            <p>Email address (ex: xyz@wp.pl): </p><input id='email'>
+            <p id="info-email"></p>
         </div>
 
         <div class="row">
-            <p>Login: </p><input id="login">
-            <p class="info-login"></p>
+            <p>Login (ex: tfran): </p><input id="login">
+            <p id="info-login"></p>
         </div>
 
         <div class="row">
-            <p>Password: </p><input type="password" id="password">
-            <p class="info-password"></p>
+            <p>Password (ex: qwerty): </p><input type="password" id="password">
+            <p id="info-password"></p>
         </div>
 
         <div class="row">
             <p>Confirm password: </p><input type="password" id="password-confirm">
-            <p class="info-confirm-password"></p>
+            <p id="info-confirm-password"></p>
         </div>
         <input id="but" type="submit" value="OK" onclick="validateForm()">
-    </div>
+    </form>
 
+    <div id="message">
+        <p id="text"></p>
+    </div>
     <script src="script.js"></script>
 </body>

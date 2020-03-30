@@ -1,6 +1,6 @@
 .sample {
     max-width: 1000px;
-    margin: 100px auto;
+    margin: 100px auto 10px auto;
 }
 
 #but {
@@ -20,6 +20,21 @@
 }
 
 .row p{
-    width: 100px;
+    width: 250px;
     text-align: left;
+}
+
+p[id^='info']{
+    color: red;
+}
+
+#message {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#message p {
+    color: blue;
+    font-size: 15px;
+    text-align: center;
 }
