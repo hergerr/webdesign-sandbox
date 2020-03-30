@@ -1,0 +1,28 @@
+.container {
+    max-width: 1000px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px;
+}
+
+.labels img {
+    display: block;
+    width: 80px;
+    float: right;
+}
+
+.main-image {
+    width: 400px;
+}
+
+.main-image img {
+    display: block;
+    margin: 0 auto;
+}
