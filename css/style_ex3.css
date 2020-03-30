@@ -1,0 +1,16 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.container a {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#image {
+    margin-top: 100px;
+    width: 100%;
+    border-radius: 10px;
+}
