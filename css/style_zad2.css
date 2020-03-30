@@ -1,0 +1,14 @@
+.eq-form {
+    max-width: 1000px;
+    margin: 100px auto 40px auto;
+    text-align: center;
+}
+
+.eq-form input {
+    text-align: right;
+}
+
+#result p {
+    text-align: center;
+    color: blue;
+}
