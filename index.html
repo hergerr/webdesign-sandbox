@@ -1,19 +1,52 @@
 <!DOCTYPE html>
+
 <head>
-<link rel="stylesheet" type="text/css" href="style.css">
-<title>Zadanie 1</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Zadanie 1</title>
 </head>
 
 <body>
     <div class="sample">
-        <p>Name: </p><input id="name">
-        <p>Last name: </p><input id="lastName">
-        <p>Phone number: </p><input id="phone">
-        <p>Birth date: </p><input id="birth">
-        <p>Email address: </p><input id='email'>
-        <p>Login: </p><input id="login">
-        <p>Password: </p><input type="password" id="password">
-        <p>Confirm password: </p><input type="password" id="password-confirm">
+
+        <div class="row">
+            <p>Name: </p><input id="name">
+            <p class="info-name"></p>
+        </div>
+
+        <div class="row">
+            <p>Last name: </p><input id="last-name">
+            <p class="info-last-name"></p>
+        </div>
+
+        <div class="row">
+            <p>Phone number: </p><input id="phone">
+            <p class="info-phone"></p>
+        </div>
+
+        <div class="row">
+            <p>Birth date: </p><input id="birth">
+            <p class="info-birth"></p>
+        </div>
+
+        <div class="row">
+            <p>Email address: </p><input id='email'>
+            <p class="info-email"></p>
+        </div>
+
+        <div class="row">
+            <p>Login: </p><input id="login">
+            <p class="info-login"></p>
+        </div>
+
+        <div class="row">
+            <p>Password: </p><input type="password" id="password">
+            <p class="info-password"></p>
+        </div>
+
+        <div class="row">
+            <p>Confirm password: </p><input type="password" id="password-confirm">
+            <p class="info-confirm-password"></p>
+        </div>
         <input id="but" type="submit" value="OK" onclick="validateForm()">
     </div>
 

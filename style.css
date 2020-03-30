@@ -1,10 +1,25 @@
-.sample{
+.sample {
     max-width: 1000px;
     margin: 100px auto;
-    text-align: center;
 }
 
-#but{
+#but {
     display: block;
     margin: 20px auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+
+.row input {
+    margin: 15px;
+}
+
+.row p{
+    width: 100px;
+    text-align: left;
 }
