@@ -1,0 +1,20 @@
+html, body {
+    margin: 0 auto;
+    padding: 0;
+}
+
+#container{
+    margin-top: 100px;
+    width: 100vw
+}
+
+#star-backgroud {
+    display: block;
+    width: 100%;
+    position: absolute;
+}
+
+#rocket {
+    position: relative;
+    top: 50px;
+}
