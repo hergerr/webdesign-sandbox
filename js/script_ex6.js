@@ -25,7 +25,7 @@ function drawRandom(number, path) {
         newImg.onclick = function(e){
             e.target.remove();
             counter++;
-            duckCounter.innerText = `Duck shot: ${counter}`;
+            duckCounter.innerText = `Ducks shot: ${counter}`;
         };
     }
     setTimeout(`drawRandom(${number++}, DUCK_PATH)`, 3000);
