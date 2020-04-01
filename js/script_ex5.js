@@ -1,7 +1,8 @@
 rocket.style.left = "5px"
 rocket = document.getElementById("rocket");
 velocity = 20;
-windowWidth = 0.9 * screen.width;
+container = document.getElementById("container")
+windowWidth = 0.9 * container.clientWidth;
 
 document.addEventListener('keydown', function (e) {
     console.log(velocity);
@@ -29,7 +30,7 @@ function move() {
         velocity = -velocity;
         rocket.src = "res/rocketship_back.gif";
     }
-    if (parseInt(rocket.style.left) <= 5) {
+    if (parseInt(rocket.style.left) <= 10) {
         velocity = -velocity;
         rocket.src = "res/rocketship.gif";
     }

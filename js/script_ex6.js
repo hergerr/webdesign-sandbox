@@ -18,11 +18,12 @@ function drawRandom(number, path) {
         newImg.style.left = randX + "px";
         newImg.style.top = randY + "px";
         newImg.src = path;
+        newImg.className = "selectDisable";
         container.appendChild(newImg);
         newImg.style.position = "absolute";
         
-        newImg.onclick = function(target){
-            target.target.remove();
+        newImg.onclick = function(e){
+            e.target.remove();
             counter++;
             duckCounter.innerText = `Duck shot: ${counter}`;
         };
