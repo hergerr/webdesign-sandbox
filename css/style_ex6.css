@@ -1,0 +1,14 @@
+#container {
+    margin: 100px auto 0 auto;
+    width: 1000px;
+    height: 600px;
+    border: 1px black solid;
+    position: relative;
+    /* cursor: url('../res/crosshair.png'), auto;	 */
+}
+
+#container img {
+    width: 50px;
+    display: block;
+}
+

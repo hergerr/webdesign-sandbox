@@ -18,3 +18,7 @@ html, body {
     position: relative;
     top: 50px;
 }
+
+#subtitle {
+    text-align: center;
+}
