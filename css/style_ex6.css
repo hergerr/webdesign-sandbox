@@ -1,10 +1,14 @@
+h3 {
+    text-align: center;
+}
+
 #container {
-    margin: 100px auto 0 auto;
+    margin: 50px auto 0 auto;
     width: 1000px;
     height: 600px;
     border: 1px black solid;
     position: relative;
-    /* cursor: url('../res/crosshair.png'), auto;	 */
+    cursor: url('../res/crosshair.png'), auto;	
 }
 
 #container img {
