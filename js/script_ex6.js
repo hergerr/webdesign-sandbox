@@ -10,26 +10,25 @@ DUCK_PATH = 'res/duck.png';
 
 function drawRandom(number, path) {
     for(var i = 0; i < number; ++i){
-        var randX = Math.trunc(Math.random() * containerWidth);
-        var randY = Math.trunc(Math.random() * containerHeight);
+        let randX = Math.trunc(Math.random() * containerWidth);
+        let randY = Math.trunc(Math.random() * containerHeight);
         
 
-        var newImg = document.createElement("img");
+        let newImg = document.createElement("img");
         newImg.style.left = randX + "px";
         newImg.style.top = randY + "px";
         newImg.src = path;
-        newImg.id = `duck-${i}`
         container.appendChild(newImg);
         newImg.style.position = "absolute";
         
-        newImg.onclick = function(){
-            newImg.remove();
+        newImg.onclick = function(target){
+            target.target.remove();
             counter++;
             duckCounter.innerText = `Duck shot: ${counter}`;
         };
     }
-    // setTimeout(`drawRandom(${number++}, DUCK_PATH)`, 1000);
+    setTimeout(`drawRandom(${number++}, DUCK_PATH)`, 3000);
     
 };
 
-drawRandom(2, DUCK_PATH);
+drawRandom(5, DUCK_PATH);
