@@ -1,5 +1,3 @@
-# Static website for DOMINO company
-
 ### Manual
 
 ```bash
