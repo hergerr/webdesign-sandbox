@@ -18,6 +18,7 @@ function drawRandom(number, path) {
         newImg.style.left = randX + "px";
         newImg.style.top = randY + "px";
         newImg.src = path;
+        newImg.id = `duck-${i}`
         container.appendChild(newImg);
         newImg.style.position = "absolute";
         
