@@ -22,6 +22,7 @@
     float: right;
     margin: 5px;
     color: darkgrey;
+    cursor: pointer;
 }
 
 #color-control {
@@ -33,8 +34,8 @@
     margin: 2px;
 }
 
-#paint-canvas {
-    border: red dotted 1px;
+.menu-icon:hover {
+    color: grey;
 }
 
 .active {
