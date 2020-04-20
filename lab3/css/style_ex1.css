@@ -13,7 +13,7 @@
     user-select: none;
 }
 
-#toolbox{
+#toolbox {
     background-color: lightgrey;
     height: 30px;
 }
@@ -24,15 +24,19 @@
     color: darkgrey;
 }
 
-.paint-color {
+#color-control {
     padding: 0;
-    height:20px;
-    width:20px;
-    border:1px solid grey;
-    border-radius: 1px;    
+    height: 20px;
+    width: 20px;
+    border: 1px solid grey;
+    border-radius: 1px;
     margin: 2px;
 }
 
-#paint-canvas{
-    width: 100%;
+#paint-canvas {
+    border: red dotted 1px;
+}
+
+.active {
+    color: black;
 }
