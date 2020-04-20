@@ -1,30 +1,35 @@
 var canvas = document.getElementById('paint-canvas');
 var ctx = canvas.getContext('2d');
+//Variables
+var canvasx = canvas.offsetLeft;
+var canvasy = canvas.offsetTop;
+var last_mousex = last_mousey = 0;
+var mousex = mousey = 0;
+var mousedown = false;
 
-var canvasX = canvas.offsetLeft;
-var canvasY = canvas.offsetTop;
-
-// console.log(`${canvasY}, ${canvasX} `)
-
-var isDrawing = false;
-var startX;
-var startY;
 
 canvas.addEventListener("mousedown", function (e) {
-    var mouseX = parseInt(e.pageX - canvasX);
-    var mouseY = parseInt(e.pageY - canvasY); 
-
-    if (isDrawing){
-        isDrawing = false;
-        ctx.beginPath();
-        console.log(`${startX}, ${startY}`)
-        ctx.rect(startX, startY, mouseX - startX, mouseY - startY);
-        ctx.fill();
-        canvas.style.cursor = "default";
-    } else {
-        isDrawing = true;
-        startX = mouseX;
-        startY = mouseY;
-        canvas.style.cursor = "crosshair";
-    }
+    last_mousex = parseInt(e.pageX - canvasx);
+    last_mousey = parseInt(e.pageY - canvasy);
+    mousedown = true;
 })
+
+canvas.addEventListener("mouseup", function (e) {
+    mousedown = false;
+})
+
+//Mousemove
+canvas.addEventListener('mousemove', function (e) {
+    mousex = parseInt(e.pageX - canvasx);
+    mousey = parseInt(e.pageY - canvasy);
+    if (mousedown) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); //clear canvas
+        ctx.beginPath();
+        var width = mousex - last_mousex;
+        var height = mousey - last_mousey;
+        ctx.rect(last_mousex, last_mousey, width, height);
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+    }
+});
