@@ -1,3 +1,7 @@
 #paint-canvas {
     border: 1px red dotted;
 }
+
+#counter{
+    text-align: center;
+}
