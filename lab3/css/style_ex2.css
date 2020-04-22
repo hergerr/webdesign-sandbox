@@ -1,7 +1,23 @@
-#paint-canvas {
-    border: 1px red dotted;
+#counter {
+    width: 500px;
+    text-align: center;
 }
 
-#counter{
+span {
+    display: inline;
+}
+
+#level {
+    width: 400px;
     text-align: center;
+}
+
+#level-display {
+    text-align: center;
+}
+
+.h-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

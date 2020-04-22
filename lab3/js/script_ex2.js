@@ -1,9 +1,10 @@
 var canvas = document.getElementById("paint-canvas");
-var scoreCounter = document.getElementById("counter")
+var scoreCounter = document.getElementById("counter");
+var levelOutput = document.getElementById("level");
 var ctx = canvas.getContext("2d");
 var score = 0;
 scoreCounter.innerText += score;
-
+var running = true;
 
 // ball start position
 var x = canvas.width / 2;
@@ -93,7 +94,8 @@ function draw() {
             dy = -dy;
         }
         else {
-            scoreCounter.innerHTML = `Game over. Your score: ${score}`;
+            scoreCounter.innerHTML = `Game over. Your score: ${score}. Press "y" to start again`;
+            running = false;
         }
     }
 
@@ -119,8 +121,8 @@ function draw() {
             paddleX = 0;
         }
     }
-
-    requestAnimationFrame(draw);
+    if (running)
+        requestAnimationFrame(draw);
 }
 
 document.addEventListener("keydown", keyDownHandler, false);
@@ -132,6 +134,49 @@ function keyDownHandler(e) {
     }
     else if (e.key == "ArrowLeft") {
         leftPressed = true;
+    }
+    else if (e.key == "y" && running == false) {
+        running = true;
+        document.location.reload()
+    }
+    else if (e.key == "u" && running == true) {
+        if (dx < 0 && dy < 0) {
+            dx--;
+            dy--;
+        }
+        else if (dx > 0 && dy > 0) {
+            dx++;
+            dy++;
+        }
+        else if (dx > 0 && dy < 0) {
+            dx++;
+            dy--;
+        } else if (dx < 0 && dy > 0) {
+            dx--;
+            dy++;
+        }
+
+        levelOutput.innerHTML = `Level ("u" to higher, "i" lower): ${Math.abs(dx)}`;
+    }
+    else if (e.key == "i" && running == true && Math.abs(dx) > 1 && Math.abs(dy) > 1) {
+        console.log(Math.abs(dx));
+        if (dx < 0 && dy < 0) {
+            dx++;
+            dy++;
+        }
+        else if (dx > 0 && dy > 0) {
+            dx--;
+            dy--;
+        }
+        else if (dx > 0 && dy < 0) {
+            dx--;
+            dy++;
+        } else if (dx < 0 && dy > 0) {
+            dx++;
+            dy--;
+        }
+
+        levelOutput.innerHTML = `Level ("u" to higher, "i" lower): ${Math.abs(dx)}`;
     }
 }
 
@@ -157,7 +202,7 @@ function collisionDetection() {
                     score += 1;
                     scoreCounter.innerText = `Score: ${score}`;
                     if (score == brickRowCount * brickColumnCount) {
-                        scoreCounter.innerHTML = "You won!"
+                        scoreCounter.innerHTML = "You won!. Press \"y\" to start again"
                     }
                 }
             }
