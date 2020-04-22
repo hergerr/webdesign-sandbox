@@ -50,7 +50,7 @@ function drawBricks() {
                 bricks[c][r].y = brickY;
                 ctx.beginPath();
                 ctx.rect(brickX, brickY, brickWidth, brickHeight);
-                ctx.fillStyle = "#0095DD";
+                ctx.fillStyle = "#000000";
                 ctx.fill();
                 ctx.closePath();
             }
@@ -61,7 +61,7 @@ function drawBricks() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#ff0000";
     ctx.fill();
     ctx.closePath();
 }
@@ -69,7 +69,7 @@ function drawBall() {
 function drawPaddle() {
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = "#000000";
     ctx.fill();
     ctx.closePath();
 }
@@ -81,13 +81,10 @@ function draw() {
     drawBricks();
     collisionDetection();
 
-    x += dx;
-    y += dy;
-
     // collision with bottom and top
     // ballradius because of collision is counted with central point of the ball
 
-    if (y + dy < ballRadius) {
+    if (y < ballRadius) {
         dy = -dy;
     } else if (y + dy > canvas.height - ballRadius) {
         if (x > paddleX && x < paddleX + paddleWidth) {
@@ -100,7 +97,7 @@ function draw() {
     }
 
     // collision with right and left
-    if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+    if (x > canvas.width - ballRadius || x < ballRadius) {
         dx = -dx;
     }
 
@@ -121,6 +118,10 @@ function draw() {
             paddleX = 0;
         }
     }
+
+    x += dx;
+    y += dy;
+
     if (running)
         requestAnimationFrame(draw);
 }
@@ -159,7 +160,6 @@ function keyDownHandler(e) {
         levelOutput.innerHTML = `Level ("u" to higher, "i" lower): ${Math.abs(dx)}`;
     }
     else if (e.key == "i" && running == true && Math.abs(dx) > 1 && Math.abs(dy) > 1) {
-        console.log(Math.abs(dx));
         if (dx < 0 && dy < 0) {
             dx++;
             dy++;
@@ -196,6 +196,7 @@ function collisionDetection() {
             var b = bricks[c][r];
             if (b.status == 1) {
                 // x, y - ball position
+                // check width, then chech height
                 if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
                     dy = -dy;
                     b.status = 0;
