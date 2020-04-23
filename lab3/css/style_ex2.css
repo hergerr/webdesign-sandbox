@@ -54,3 +54,17 @@ span {
 #save-your-score {
     display: none;
 }
+
+#scoreboard {
+    width: 100%;
+}
+
+table, th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+tr{
+    border-bottom: 1px solid black;
+    width: 100%;
+}

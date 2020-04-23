@@ -1,9 +1,14 @@
 var canvas = document.getElementById("paint-canvas");
+
+// getting less important things like counters, tables, etc
 var scoreCounter = document.getElementById("counter");
 var levelOutput = document.getElementById("level");
 var nameInput = document.getElementById("name");
 var nameButton = document.getElementById("button");
 var saveYourScoreHeader = document.getElementById("save-your-score");
+var scoreTable = document.getElementById("scoreboard");
+
+// initializing global values
 var ctx = canvas.getContext("2d");
 var score = 0;
 scoreCounter.innerText += score;
@@ -13,6 +18,7 @@ var running = true;
 var x = canvas.width / 2;
 var y = canvas.height - 30;
 var ballRadius = 10;
+
 // ball speed
 var dx = 5;
 var dy = -5;
@@ -36,6 +42,7 @@ var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 var bricks = [];
 
+// creating array with brick state and dimensions
 for (var c = 0; c < brickColumnCount; c++) {
     bricks[c] = [];
     for (var r = 0; r < brickRowCount; r++) {
@@ -43,6 +50,7 @@ for (var c = 0; c < brickColumnCount; c++) {
     }
 }
 
+// drawing functions
 function drawBricks() {
     for (var c = 0; c < brickColumnCount; c++) {
         for (var r = 0; r < brickRowCount; r++) {
@@ -77,6 +85,7 @@ function drawPaddle() {
     ctx.closePath();
 }
 
+// main function
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
@@ -99,6 +108,7 @@ function draw() {
             nameButton.style.display = 'block';
             saveYourScoreHeader.style.display = 'block';
             running = false;
+            drawScoreboard();
         }
     }
 
@@ -132,6 +142,7 @@ function draw() {
         requestAnimationFrame(draw);
 }
 
+// key listeners (for leveling and restarting game)
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -144,6 +155,7 @@ function keyDownHandler(e) {
     }
     else if (e.key == "y" && running == false) {
         running = true;
+        scoreTable.style.display = 'none';
         document.location.reload()
     }
     else if (e.key == "u" && running == true) {
@@ -163,7 +175,6 @@ function keyDownHandler(e) {
             dy++;
         }
 
-        levelOutput.innerHTML = `Level ("u" to higher, "i" lower): ${Math.abs(dx)}`;
     }
     else if (e.key == "i" && running == true && Math.abs(dx) > 1 && Math.abs(dy) > 1) {
         if (dx < 0 && dy < 0) {
@@ -182,8 +193,9 @@ function keyDownHandler(e) {
             dy--;
         }
 
-        levelOutput.innerHTML = `Level ("u" to higher, "i" lower): ${Math.abs(dx)}`;
     }
+    levelOutput.innerHTML = `Level ("u" to higher, "i" lower): ${Math.abs(dx)}`;
+
 }
 
 function keyUpHandler(e) {
@@ -213,7 +225,7 @@ function collisionDetection() {
                         nameInput.style.display = 'block';
                         nameButton.style.display = 'block';
                         saveYourScoreHeader.style.display = 'block';
-
+                        drawScoreboard();
                     }
                 }
             }
@@ -221,9 +233,24 @@ function collisionDetection() {
     }
 }
 
+// saving scores
 nameButton.addEventListener("click", function (e) {
     var name = nameInput.value;
     localStorage.setItem(name, String(score));
 })
+
+function drawScoreboard() {
+    scoreTable.style.display = 'block';
+    user_data = Object.entries(localStorage)
+    for (user in user_data) {
+        var row = scoreTable.insertRow(0);
+
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+
+        cell1.innerHTML = user_data[user][0];
+        cell2.innerHTML =  user_data[user][1];
+    }
+}
 
 draw()
