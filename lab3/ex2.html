@@ -12,18 +12,32 @@
         <ul>
             <li><a href="index.html">Ex 1</a></li>
             <li><a href="ex2.html">Ex 2</a></li>
-            <li><a href="ex3.html">Ex 3</a></li>
         </ul>
     </header>
 
     <h1>Exercise 2</h1>
-    <div class="h-container">
-        <h3 id="level">Level ("u" to higher, "i" lower): 5</h3>
-        <h3 id="counter">Score: </h3>    
-    </div>
-    
-    <div id="container">
-        <canvas id="paint-canvas" width=1000 height=600></canvas>
+
+    <div class="window-container">
+
+        <div class="middle">
+            <div class="h-container">
+                <h3 id="level">Level ("u" to higher, "i" lower): 5</h3>
+                <h3 id="counter">Score: </h3>
+            </div>
+
+            <div id="container">
+                <canvas id="paint-canvas" width=1000 height=600></canvas>
+            </div>
+        </div>
+
+        <div class="v-container">
+            <h3 id="save-your-score">Save your score</h3>
+            <input id="name" placeholder="Your name:">
+            <input type="button" value="OK" id="button">
+
+            <h3>Hall of Fame</h3>
+        </div>
+
     </div>
 
     <script src="js/script_ex2.js"></script>

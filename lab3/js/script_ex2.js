@@ -1,6 +1,9 @@
 var canvas = document.getElementById("paint-canvas");
 var scoreCounter = document.getElementById("counter");
 var levelOutput = document.getElementById("level");
+var nameInput = document.getElementById("name");
+var nameButton = document.getElementById("button");
+var saveYourScoreHeader = document.getElementById("save-your-score");
 var ctx = canvas.getContext("2d");
 var score = 0;
 scoreCounter.innerText += score;
@@ -91,7 +94,10 @@ function draw() {
             dy = -dy;
         }
         else {
-            scoreCounter.innerHTML = `Game over. Your score: ${score}. Press "y" to start again`;
+            scoreCounter.innerHTML = `Game over. Your score: ${score}. Press "y" to start again. You can save your score`;
+            nameInput.style.display = 'block';
+            nameButton.style.display = 'block';
+            saveYourScoreHeader.style.display = 'block';
             running = false;
         }
     }
@@ -203,12 +209,21 @@ function collisionDetection() {
                     score += 1;
                     scoreCounter.innerText = `Score: ${score}`;
                     if (score == brickRowCount * brickColumnCount) {
-                        scoreCounter.innerHTML = "You won!. Press \"y\" to start again"
+                        scoreCounter.innerHTML = "You won!. Press \"y\" to start again. You can save your score";
+                        nameInput.style.display = 'block';
+                        nameButton.style.display = 'block';
+                        saveYourScoreHeader.style.display = 'block';
+
                     }
                 }
             }
         }
     }
 }
+
+nameButton.addEventListener("click", function (e) {
+    var name = nameInput.value;
+    localStorage.setItem(name, String(score));
+})
 
 draw()
