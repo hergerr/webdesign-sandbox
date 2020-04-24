@@ -57,14 +57,28 @@ span {
 
 #scoreboard {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-table, th {
-    border: 1px solid black;
+.row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.name {
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    border-right: 1px solid black;
+}
+
+.score {
+    width: 50%;
     text-align: center;
 }
 
-tr{
-    border-bottom: 1px solid black;
-    width: 100%;
+#last-results{
+    display: none;
 }

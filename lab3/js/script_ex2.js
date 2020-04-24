@@ -7,6 +7,7 @@ var nameInput = document.getElementById("name");
 var nameButton = document.getElementById("button");
 var saveYourScoreHeader = document.getElementById("save-your-score");
 var scoreTable = document.getElementById("scoreboard");
+var lastResults = document.getElementById("last-results");
 
 // initializing global values
 var ctx = canvas.getContext("2d");
@@ -107,6 +108,7 @@ function draw() {
             nameInput.style.display = 'block';
             nameButton.style.display = 'block';
             saveYourScoreHeader.style.display = 'block';
+            lastResults.style.display = "block";
             running = false;
             drawScoreboard();
         }
@@ -225,6 +227,7 @@ function collisionDetection() {
                         nameInput.style.display = 'block';
                         nameButton.style.display = 'block';
                         saveYourScoreHeader.style.display = 'block';
+                        lastResults.style.display = "block";
                         drawScoreboard();
                     }
                 }
@@ -237,19 +240,50 @@ function collisionDetection() {
 nameButton.addEventListener("click", function (e) {
     var name = nameInput.value;
     localStorage.setItem(name, String(score));
+
+
+    var row = document.createElement("div");
+    row.className = "row";
+
+    scoreTable.appendChild(row);
+
+    var nameTag = document.createElement("p");
+    nameTag.className = "name";
+    var text = document.createTextNode(name);
+    nameTag.appendChild(text)
+    row.appendChild(nameTag);
+
+
+    var user_score = document.createElement("p");
+    user_score.className = "score";
+    var score_text = document.createTextNode(String(score));
+    user_score.appendChild(score_text);
+    row.appendChild(user_score);
 })
 
 function drawScoreboard() {
     scoreTable.style.display = 'block';
     user_data = Object.entries(localStorage)
     for (user in user_data) {
-        var row = scoreTable.insertRow(0);
 
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
+        var row = document.createElement("div");
+        row.className = "row";
 
-        cell1.innerHTML = user_data[user][0];
-        cell2.innerHTML =  user_data[user][1];
+        scoreTable.appendChild(row);
+
+        var name = document.createElement("p");
+        name.className = "name";
+        var text = document.createTextNode(user_data[user][0]);
+        name.appendChild(text)
+        row.appendChild(name);
+
+
+        var user_score = document.createElement("p");
+        user_score.className = "score";
+        var score_text = document.createTextNode(user_data[user][1]);
+        user_score.appendChild(score_text);
+        row.appendChild(user_score);
+
     }
 }
 
