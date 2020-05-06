@@ -7,6 +7,18 @@ function startAll() {
         // project root path relative path
         clientGenerator = new Worker('./js/clientGenerator.worker.js');
         queue = new Worker('./js/queue.worker.js');
+        officialA = new Worker('./js/official.worker.js', {
+            'name': 'officialA'
+        });
+        officialB = new Worker('./js/official.worker.js', {
+            'name': 'officialB'
+        });
+        officialC = new Worker('./js/official.worker.js', {
+            'name': 'officialC'
+        });
+
+        // first client
+        setTimeout(() => { queue.postMessage({ "command": "pop" }) }, 3000);
     }
 
     // client generator pushes new client every random period of time
@@ -19,22 +31,14 @@ function startAll() {
         queueAnswer = event.data
 
         if (queueAnswer.type == "new client") {
-            while (true) {
-                if (typeof (officialA) === 'undefined') {
-                    officialA = new Worker('./js/official.worker.js', {
-                        'name': 'officialA'
-                    });
-                    officialA.postMessage(queueAnswer.value);
-
-                    officialA.onmessage = function () {
-                        officialA.terminate();
-                        officialA = undefined;
-                        queue.postMessage({"command": "pop"})
-                    }
-                }
+            officialA.postMessage(queueAnswer.value);
+            officialA.onmessage = function () {
+                // officialA.terminate();
+                // officialA = undefined;
+                queue.postMessage({ "command": "pop" })
             }
-        } else {
-            
+        } else if (queueAnswer.type == 'info') {
+            console.log('Kolejka: ' + queueAnswer.value);
         }
     }
 }

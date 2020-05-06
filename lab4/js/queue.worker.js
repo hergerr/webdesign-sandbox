@@ -4,13 +4,15 @@ var queue = [];
 self.onmessage = function (event) {
     if (event.data.command === 'push') {
         if (queue.length >= CAPATICY) {
-            console.log('Maksymalna liczba klientów przekroczona');
+            postMessage({"type": "info", "value":"Maksymalna liczba klientów przekroczona" })
         } else {
             queue.push(event.data);
-            console.log(`Do kolejki przesłano klienta, ktorego sprawa trwa ${event.data}`)
+            postMessage({"type": "info", "value": `Do kolejki przesłano klienta, ktorego sprawa trwa ${event.data.value}`})
         }
     } else if (event.data.command === 'pop'){
-        nextClientPeriod = queue.shift();
+        var nextClientPeriod = queue.shift();
+        
+
         postMessage({"type": "new client", "value": nextClientPeriod});
     }
 
