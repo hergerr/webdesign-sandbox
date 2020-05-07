@@ -28,17 +28,15 @@ function startAll() {
     }
 
     queue.onmessage = function (event) {
-        queueAnswer = event.data
-
-        if (queueAnswer.type == "new client") {
-            officialA.postMessage(queueAnswer.value);
+        if (event.data.type === "new client") {
+            officialA.postMessage(event.data.value);
             officialA.onmessage = function () {
                 // officialA.terminate();
                 // officialA = undefined;
                 queue.postMessage({ "command": "pop" })
             }
-        } else if (queueAnswer.type == 'info') {
-            console.log('Kolejka: ' + queueAnswer.value);
+        } else if (event.data.type == 'info') {
+            console.log('Kolejka: ' + event.data.value);
         }
     }
 }

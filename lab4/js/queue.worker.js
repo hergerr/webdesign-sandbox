@@ -6,7 +6,7 @@ self.onmessage = function (event) {
         if (queue.length >= CAPATICY) {
             postMessage({"type": "info", "value":"Maksymalna liczba klientów przekroczona" })
         } else {
-            queue.push(event.data);
+            queue.push(event.data.value);
             postMessage({"type": "info", "value": `Do kolejki przesłano klienta, ktorego sprawa trwa ${event.data.value}`})
         }
     } else if (event.data.command === 'pop'){
