@@ -3,7 +3,7 @@ var queue = [];
 
 self.onmessage = function (event) {
     if (event.data.command === 'push') {
-        if (queue.length >= CAPATICY) {
+        if (queue.length === CAPATICY) {
             postMessage({"type": "info", "value":"Maksymalna liczba klientów przekroczona" })
         } else {
             queue.push(event.data.value);

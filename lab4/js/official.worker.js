@@ -2,11 +2,11 @@ var clientCaseDuration;
 
 self.onmessage = function(event){
     clientCaseDuration = event.data;
+    console.log(`${self.name} zaczyna obsługe`);
     setTimeout("doClientCase()", clientCaseDuration);
-    console.log(`${self.name} jest wolny`)
 }
 
 function doClientCase(){
-    console.log(`${self.name} obsługuje klienta. Długość sprawy: ${clientCaseDuration}`);
+    console.log(`${self.name} obsłużył klienta. Długość sprawy: ${clientCaseDuration}`);
     postMessage('usun mnie')
 }
