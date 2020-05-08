@@ -17,7 +17,7 @@ self.onmessage = function (event) {
             postMessage({"type": "info", "value": "Kolejka jest pusta", "queue": queue});
         }
     } else if (event.data.command === "init"){
-        capacity = parseInt(event.data.capacity);
+        capacity = event.data.capacity;
     }
 
 }

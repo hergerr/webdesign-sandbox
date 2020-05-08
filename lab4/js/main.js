@@ -134,10 +134,10 @@ startButton.addEventListener("click", function (event) {
     let capacity = document.getElementById("capacity");
     // if (variance.val)
     if (lambda.checkValidity() && variance.checkValidity() && expected.checkValidity() && capacity.checkValidity()) {
-        lambda = lambda.value;
-        variance = variance.value;
-        expected = expected.value;
-        capacity = capacity.value;
+        lambda = parseFloat(lambda.value);
+        variance = parseFloat(variance.value);
+        expected = parseFloat(expected.value);
+        capacity = parseInt(capacity.value);
         startAll(lambda, variance, expected, capacity);
     } else {
         console.log('Nieprawidlowe dane')
