@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>Exercise 1</title>
-        <meta charset="utf-8">
 
-        <!-- mute favicon error -->
-        <link rel="icon" href="data:;base64,=">
+<head>
+    <title>Exercise 1</title>
+    <meta charset="utf-8">
 
-    </head>
+    <!-- mute favicon error -->
+    <link rel="icon" href="data:;base64,=">
 
-
-    <body>
-        <p>Count numbers: <output id="result"></output></p>
-        <button id="start">Start Worker</button>
-        <button id="stop">Stop Worker</button>
+</head>
 
 
-        <!-- <script type="module" src="js/main.js"></script> -->
-        <script src="js/main.js"></script>
-    </body>
+<body>
+    <div id="officialA">Stan urzędnika a: wolny</div>
+    <div id="officialB">Stan urzędnika b: wolny</div>
+    <div id="officialC">Stan urzędnika c: wolny</div>
+    <div id="queue">Stan koleki</div>
+    <div id="serviced">Łącznie obsłużonych</div>
+    <div id="not-serviced">Łącznie odrzuconych</div>
+    <button id="start">Start Worker</button>
+    <button id="stop">Stop Worker</button>
+
+
+    <script src="js/main.js"></script>
+</body>
+
 </html>

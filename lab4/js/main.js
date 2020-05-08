@@ -1,13 +1,16 @@
 var queue;
 var clientGenerator;
 var officialA, officialB, officialC;
+var startButton = document.getElementById("start");
+var stopButton = document.getElementById("stop");
+
 
 function startAll() {
     if (typeof (clientGenerator) === 'undefined' && typeof (queue) == 'undefined' && typeof (officialA) == 'undefined' && typeof (officialA) == 'undefined' && typeof (officialA) == 'undefined') {
         // project root path relative path
         clientGenerator = new Worker('./js/clientGenerator.worker.js');
         queue = new Worker('./js/queue.worker.js');
-        
+
         // first clients
         setTimeout(() => { queue.postMessage({ "command": "pop" }); queue.postMessage({ "command": "pop" }); queue.postMessage({ "command": "pop" }); }, 5000);
     }
@@ -20,7 +23,7 @@ function startAll() {
 
     queue.onmessage = function (event) {
         if (event.data.type === "new client") {
-            if (typeof(officialA) === 'undefined') {
+            if (typeof (officialA) === 'undefined') {
                 officialA = new Worker('./js/official.worker.js', {
                     'name': 'officialA'
                 });
@@ -30,7 +33,7 @@ function startAll() {
                     officialA = undefined;
                     queue.postMessage({ "command": "pop" })
                 }
-            } else if (typeof(officialB) === 'undefined') {
+            } else if (typeof (officialB) === 'undefined') {
                 officialB = new Worker('./js/official.worker.js', {
                     'name': 'officialB'
                 });
@@ -39,8 +42,8 @@ function startAll() {
                     officialB.terminate();
                     officialB = undefined;
                     queue.postMessage({ "command": "pop" })
-                }   
-            } else if (typeof(officialC) === 'undefined') {
+                }
+            } else if (typeof (officialC) === 'undefined') {
                 officialC = new Worker('./js/official.worker.js', {
                     'name': 'officialC'
                 });
@@ -56,7 +59,7 @@ function startAll() {
             if (event.data.value === "Kolejka jest pusta") {
                 setTimeout(() => {
                     queue.postMessage({ "command": "pop" });
-                }, 1000);    
+                }, 1000);
             }
         }
     }
@@ -77,8 +80,10 @@ function stopAll() {
 }
 
 
-function main() {
+startButton.addEventListener("click", function (event) {
     startAll();
-}
+})
 
-main();
+stopButton.addEventListener("click", function (event) {
+    stopAll();
+})
