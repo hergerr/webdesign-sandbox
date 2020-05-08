@@ -1,9 +1,9 @@
-const CAPATICY = 6;
+var capacity;
 var queue = [];
 
 self.onmessage = function (event) {
     if (event.data.command === 'push') {
-        if (queue.length === CAPATICY) {
+        if (queue.length === capacity) {
             postMessage({"type": "info", "value":"Maksymalna liczba klientów przekroczona", "queue": queue })
         } else {
             queue.push(event.data.value);
@@ -16,8 +16,8 @@ self.onmessage = function (event) {
         } else {
             postMessage({"type": "info", "value": "Kolejka jest pusta", "queue": queue});
         }
-        
-
+    } else if (event.data.command === "init"){
+        capacity = parseInt(event.data.capacity);
     }
 
 }

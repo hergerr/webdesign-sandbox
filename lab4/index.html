@@ -5,6 +5,7 @@
 <head>
     <title>Exercise 1</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href='css/style.css'>
     <link rel="stylesheet" type="text/css" href='css/ex1.css'>
     <!-- mute favicon error -->
     <link rel="icon" href="data:;base64,=">
@@ -13,7 +14,23 @@
 
 
 <body>
+    <header class="navbar">
+        <ul>
+            <li><a href="index.html">Ex 1</a></li>
+            <li><a href="ex2.html">Ex 2</a></li>
+        </ul>
+    </header>
+
+    <h1>Exercise 1</h1>
     <div id="container">
+        <form id="settings">
+            <input id="lambda" type="number" step="0.00001" placeholder="lambda" required>
+            <input id="expected" type="number" step="1000" placeholder="wartość oczekiwana" required>
+            <input id="variance" type="number" step="1000" placeholder="wariancja" required>
+            <input id="capacity" type="number" step="1" placeholder="pojemność kolejki" required>
+            <input id="start" type="submit" value="Start"></button>
+        </form>
+
         <p class="label">Stan urzędnika A</p>
         <div id="officialA">wolny</div>
 
@@ -32,10 +49,7 @@
         <p class="label">Łącznie odrzuconych</p>
         <div id="not-serviced">0</div>
 
-        <div id="button-box">
-            <button id="start">Start</button>
-            <button id="stop">Stop</button>
-        </div>
+        <button id="stop">Stop</button>
 
     </div>
 

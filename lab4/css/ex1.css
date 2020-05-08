@@ -1,18 +1,18 @@
-html, body{
-    font-size: 25px;
-}
-
 #container {
+    font-size: 25px;
     max-width: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 100px auto;
+    margin: 40px auto;
     text-align: center;
 }
 
+#settings input {
+    margin: 10px;
+}
+
 #container div{
-    /* margin: 5px 0; */
     font-weight: bolder;
     height: 30px;
 }
@@ -21,13 +21,12 @@ html, body{
     font-size: 15px;
 }
 
-#button-box {
-    display: flex;
-    justify-content: center;
-}
-
-#container button {
+button {
     width: 50px;
     height: 30px;
     margin: 15px;
+}
+
+#stop {
+    margin: 20px auto;
 }

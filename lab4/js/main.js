@@ -12,11 +12,14 @@ var notServiced = document.getElementById("not-serviced");
 var servicedCounter = 0;
 var notServicedCounter = 0;
 
-function startAll() {
+
+function startAll(lambda, variance, expected, capacity) {
     if (typeof (clientGenerator) === 'undefined' && typeof (queue) == 'undefined' && typeof (officialA) == 'undefined' && typeof (officialA) == 'undefined' && typeof (officialA) == 'undefined') {
         // project root path relative path
         clientGenerator = new Worker('./js/clientGenerator.worker.js');
+        clientGenerator.postMessage({ "lambda": lambda, "variance": variance, "expected": expected })
         queue = new Worker('./js/queue.worker.js');
+        queue.postMessage({ "command": "init", "capacity": capacity });
 
         // first clients
         queue.postMessage({ "command": "pop" }); queue.postMessage({ "command": "pop" }); queue.postMessage({ "command": "pop" });
@@ -86,7 +89,7 @@ function startAll() {
                     queue.postMessage({ "command": "pop" })
                 }
             }
-        } 
+        }
         // when queue wants to say sth, update DOM
         else if (event.data.type == 'info') {
             console.log(event.data.value);
@@ -96,9 +99,9 @@ function startAll() {
                 setTimeout(() => {
                     queue.postMessage({ "command": "pop" });
                 }, 1000);
-            
-            } 
-            
+
+            }
+
             // if queue capacity is reached, update DOM
             else if (event.data.value === "Maksymalna liczba klientów przekroczona") {
                 notServicedCounter++;
@@ -124,7 +127,22 @@ function stopAll() {
 
 
 startButton.addEventListener("click", function (event) {
-    startAll();
+    event.preventDefault();
+    let lambda = document.getElementById("lambda");
+    let variance = document.getElementById("variance");
+    let expected = document.getElementById("expected");
+    let capacity = document.getElementById("capacity");
+    // if (variance.val)
+    if (lambda.checkValidity() && variance.checkValidity() && expected.checkValidity() && capacity.checkValidity()) {
+        lambda = lambda.value;
+        variance = variance.value;
+        expected = expected.value;
+        capacity = capacity.value;
+        startAll(lambda, variance, expected, capacity);
+    } else {
+        console.log('Nieprawidlowe dane')
+    }
+
 })
 
 stopButton.addEventListener("click", function (event) {
