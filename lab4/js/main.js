@@ -7,13 +7,7 @@ function startAll() {
         // project root path relative path
         clientGenerator = new Worker('./js/clientGenerator.worker.js');
         queue = new Worker('./js/queue.worker.js');
-        // officialB = new Worker('./js/official.worker.js', {
-        //     'name': 'officialB'
-        // });
-        // officialC = new Worker('./js/official.worker.js', {
-        //     'name': 'officialC'
-        // });
-
+        
         // first clients
         setTimeout(() => { queue.postMessage({ "command": "pop" }); queue.postMessage({ "command": "pop" }); queue.postMessage({ "command": "pop" }); }, 5000);
     }
@@ -59,6 +53,11 @@ function startAll() {
             }
         } else if (event.data.type == 'info') {
             console.log('Kolejka: ' + event.data.value);
+            if (event.data.value === "Kolejka jest pusta") {
+                setTimeout(() => {
+                    queue.postMessage({ "command": "pop" });
+                }, 1000);    
+            }
         }
     }
 }
