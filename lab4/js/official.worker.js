@@ -2,7 +2,6 @@ var clientCaseDuration;
 
 self.onmessage = function(event){
     clientCaseDuration = event.data;
-    console.log(`${self.name} zaczyna obsługe`);
     setTimeout("doClientCase()", clientCaseDuration);
 }
 

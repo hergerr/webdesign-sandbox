@@ -1,0 +1,31 @@
+html, body{
+    font-size: 25px;
+}
+
+#container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 100px auto;
+    text-align: center;
+}
+
+#container div{
+    margin: 5px 0;
+    font-weight: bolder;
+}
+
+#container p {
+    font-size: 15px;
+}
+
+#button-box {
+    display: flex;
+    justify-content: center;
+}
+
+#container button {
+    width: 50px;
+    margin: 15px;
+}
