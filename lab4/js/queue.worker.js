@@ -10,10 +10,14 @@ self.onmessage = function (event) {
             postMessage({"type": "info", "value": `Do kolejki przesłano klienta, ktorego sprawa trwa ${event.data.value}`})
         }
     } else if (event.data.command === 'pop'){
-        var nextClientPeriod = queue.shift();
+        if (queue.length > 0){
+            var nextClientPeriod = queue.shift();
+            postMessage({"type": "new client", "value": nextClientPeriod});
+        } else {
+            postMessage({"type": "info", "value": "Kolejka jest pusta"});
+        }
         
 
-        postMessage({"type": "new client", "value": nextClientPeriod});
     }
 
 }

@@ -14,8 +14,8 @@ function startAll() {
         //     'name': 'officialC'
         // });
 
-        // first client
-        setTimeout(() => { queue.postMessage({ "command": "pop" }) }, 3000);
+        // first clients
+        setTimeout(() => { queue.postMessage({ "command": "pop" }); queue.postMessage({ "command": "pop" }); queue.postMessage({ "command": "pop" }); }, 5000);
     }
 
     // client generator pushes new client every random period of time
@@ -28,12 +28,32 @@ function startAll() {
         if (event.data.type === "new client") {
             if (typeof(officialA) === 'undefined') {
                 officialA = new Worker('./js/official.worker.js', {
-                    'name': 'officialB'
+                    'name': 'officialA'
                 });
                 officialA.postMessage(event.data.value);
                 officialA.onmessage = function () {
                     officialA.terminate();
                     officialA = undefined;
+                    queue.postMessage({ "command": "pop" })
+                }
+            } else if (typeof(officialB) === 'undefined') {
+                officialB = new Worker('./js/official.worker.js', {
+                    'name': 'officialB'
+                });
+                officialB.postMessage(event.data.value);
+                officialB.onmessage = function () {
+                    officialB.terminate();
+                    officialB = undefined;
+                    queue.postMessage({ "command": "pop" })
+                }   
+            } else if (typeof(officialC) === 'undefined') {
+                officialC = new Worker('./js/official.worker.js', {
+                    'name': 'officialC'
+                });
+                officialC.postMessage(event.data.value);
+                officialC.onmessage = function () {
+                    officialC.terminate();
+                    officialC = undefined;
                     queue.postMessage({ "command": "pop" })
                 }
             }
