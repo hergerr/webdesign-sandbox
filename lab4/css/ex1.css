@@ -12,8 +12,9 @@ html, body{
 }
 
 #container div{
-    margin: 5px 0;
+    /* margin: 5px 0; */
     font-weight: bolder;
+    height: 30px;
 }
 
 #container p {
@@ -27,5 +28,6 @@ html, body{
 
 #container button {
     width: 50px;
+    height: 30px;
     margin: 15px;
 }

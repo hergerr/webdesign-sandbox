@@ -52,7 +52,7 @@ function startAll() {
                     officialA = undefined;
                     officialAState.innerHTML = `wolny`;
                     servicedCounter += 1;
-                    serviced.innerHTML = `Łącznie obsłużonych: ${servicedCounter}`;
+                    serviced.innerHTML = servicedCounter;
 
                     // invite new client
                     queue.postMessage({ "command": "pop" })
@@ -68,7 +68,7 @@ function startAll() {
                     officialB = undefined;
                     officialBState.innerHTML = `wolny`;
                     servicedCounter += 1;
-                    serviced.innerHTML = `Łącznie obsłużonych: ${servicedCounter}`;
+                    serviced.innerHTML = servicedCounter;
                     queue.postMessage({ "command": "pop" })
                 }
             } else if (typeof (officialC) === 'undefined') {
@@ -82,7 +82,7 @@ function startAll() {
                     officialC = undefined;
                     officialCState.innerHTML = `wolny`;
                     servicedCounter += 1;
-                    serviced.innerHTML = `Łącznie obsłużonych: ${servicedCounter}`;
+                    serviced.innerHTML = servicedCounter;
                     queue.postMessage({ "command": "pop" })
                 }
             }
@@ -102,7 +102,7 @@ function startAll() {
             // if queue capacity is reached, update DOM
             else if (event.data.value === "Maksymalna liczba klientów przekroczona") {
                 notServicedCounter++;
-                notServiced.innerHTML = `Łącznie odrzuconych: ${notServicedCounter}`;
+                notServiced.innerHTML = notServicedCounter;
             }
         }
     }

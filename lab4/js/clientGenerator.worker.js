@@ -4,7 +4,7 @@ self.importScripts("../bower_components/random/lib/random.min.js");
 self.importScripts("../bower_components/prob.js/dist/prob-min.js");
 
 var normal = Prob.normal(10000, 5000);
-var exponential = Prob.exponential(0.001);
+var exponential = Prob.exponential(0.0001);
 
 function timedCount() {
     var clientCaseDuration = Math.abs(Math.trunc(normal()));
