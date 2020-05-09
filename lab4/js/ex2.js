@@ -1,31 +1,46 @@
-exerciseNumber = document.getElementById("exercise-number");
+var exerciseNumber = document.getElementById("exercise-number");
+var button = document.getElementById("button");
+var arrayTag = document.getElementById("array");
+var resultTag = document.getElementById("result");
 
-function solution(A) {
-    var maxHeight = 0
-    var minHeight = 0
-    var maxDepth = 0
-
-    A.forEach(element => {
-        if (element > maxHeight) {
-            var d = maxHeight - minHeight
-            maxHeight = element
-            minHeight = element
-        } else if (element < minHeight) {
-            minHeight = element
-        } else {
-            var d = element - minHeight
+class Solver {
+    constructor(size) {
+        this.size = size;
+        this.solverWorker = undefined;
+        this.array = []
+        for (var i = 0; i < this.size; i++) {
+            this.array.push(Math.round(Math.random() * 100))
         }
+        arrayTag.innerHTML = `Wylosowana tablica: ${this.array}`;
+    }
 
-        if (d > maxDepth) {
-            maxDepth = d
+
+    solve() {
+        this.solverWorker = new Worker('./js/ex2.solver.worker.js')
+        console.log(this.array);
+        this.solverWorker.postMessage(this.array);
+        this.solverWorker.onmessage = (event) => {
+            this.solverWorker.terminate();
+            this.solverWorker = undefined;
+            resultTag.innerHTML = `Wynik: ${event.data}`;
         }
-    });
-
-    return maxDepth
+    }
 }
+
 
 
 window.onload = function () {
     exerciseNumber.innerHTML = `Numer zadania: 241255 mod 5 = ${241255 % 5}`
-    console.log(solution([1, 3, 2, 1, 2, 1, 5, 3, 3, 4, 2]))
+
+    button.addEventListener("click", function (event) {
+        event.preventDefault();
+        var size = document.getElementById("size");
+        if (size.checkValidity()) {
+            size = parseInt(size.value);
+            var solver = new Solver(size);
+            solver.solve();
+        }
+
+
+    })
 }
