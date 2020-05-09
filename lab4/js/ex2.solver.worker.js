@@ -3,7 +3,7 @@ var minHeight = 0
 var maxDepth = 0
 
 
-self.onmessage = function(event){
+self.onmessage = function (event) {
     array = event.data;
 
     array.forEach(element => {
@@ -16,11 +16,11 @@ self.onmessage = function(event){
         } else {
             var d = element - minHeight;
         }
-    
+
         if (d > maxDepth) {
             maxDepth = d;
         }
-    
+
     });
     postMessage(maxDepth);
 }

@@ -17,7 +17,6 @@ class Solver {
 
     solve() {
         this.solverWorker = new Worker('./js/ex2.solver.worker.js')
-        console.log(this.array);
         this.solverWorker.postMessage(this.array);
         this.solverWorker.onmessage = (event) => {
             this.solverWorker.terminate();
