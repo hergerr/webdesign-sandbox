@@ -9,7 +9,8 @@
   position: absolute;
   top: 15px;
   left: 15px;
-  font-size: 25px;
+  font-size: 35px;
+  letter-spacing: -5px;
 }
 
 .App-title {
@@ -25,4 +26,8 @@
   margin: 100px auto;
   text-align: justify;
   font-family: 'Lato', sans-serif;
+}
+
+.App-login-register {
+  margin: 0 auto;
 }

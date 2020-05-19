@@ -1,5 +1,6 @@
-import React from 'react';
 import './App.css';
+import {LoginRegisterBox} from './components/login-register-box/login-register-box.component';
+import React from 'react';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         Through modern memotechniques we are able to maximize your
         progress without taking more of your precious time or effort.
       </p>
+      <LoginRegisterBox className="App-login-register"/>
     </div>
   );
 }

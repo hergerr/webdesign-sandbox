@@ -1,0 +1,18 @@
+.inner-box {
+    border: 1px #C2C3C5 solid;
+    background-color: #25292F;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.outer-box {
+    padding: 0;
+    max-width: 310px;
+    margin: 0 auto;
+}
+
+.register {
+    font-family: 'Lato', sans-serif;
+    margin: 10px auto;
+    text-align: right;
+}

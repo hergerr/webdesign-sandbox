@@ -1,10 +1,11 @@
-import React from "react"
+import React from "react";
+import './label-and-input.styles.css';
 
 export const LabelAndInput = (props) => {
     return (
         <div className="label-and-input-wrapper">
-            <p className="label">{props.label}</p>
-            <input className="text-input"/>
+            <p>{props.label}</p>
+            <input/>
         </div>
     )
 }
