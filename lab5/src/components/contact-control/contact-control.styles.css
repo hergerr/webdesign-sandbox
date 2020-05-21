@@ -1,0 +1,10 @@
+.contact-box {
+    max-width: 1000px;
+    height: 200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-box button {
+    margin: 10px;
+}

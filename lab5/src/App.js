@@ -1,5 +1,6 @@
 import './App.css';
 import {LoginRegisterBox} from './components/login-register-box/login-register-box.component';
+import {ContactControl} from './components/contact-control/contact-control.component'
 import React from 'react';
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
         progress without taking more of your precious time or effort.
       </p>
       <LoginRegisterBox className="App-login-register"/>
+      <h3>Contact</h3>
+      <ContactControl/>
+      <h3>Our courses</h3>
     </div>
   );
 }
