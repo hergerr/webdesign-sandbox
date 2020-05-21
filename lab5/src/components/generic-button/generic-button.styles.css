@@ -1,4 +1,4 @@
-.button {
+button {
     background-color: #25292F;
     border: 1px solid white;
     border-radius: 10px;
@@ -6,4 +6,8 @@
     padding: 15px;
     color: #C2C3C5;
     font-weight: bolder;
+}
+
+button:focus {
+    outline: 0;
 }
