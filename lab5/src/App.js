@@ -1,6 +1,7 @@
 import './App.css';
-import {LoginRegisterBox} from './components/login-register-box/login-register-box.component';
-import {ContactControl} from './components/contact-control/contact-control.component'
+import { LoginRegisterBox } from './components/login-register-box/login-register-box.component';
+import { ContactControl } from './components/contact-control/contact-control.component';
+import { CoursesList } from './components/courses-list/courses-list.component'
 import React from 'react';
 
 function App() {
@@ -13,10 +14,13 @@ function App() {
         Through modern memotechniques we are able to maximize your
         progress without taking more of your precious time or effort.
       </p>
-      <LoginRegisterBox className="App-login-register"/>
+      <LoginRegisterBox className="App-login-register" />
       <h3>Contact</h3>
-      <ContactControl/>
+      <ContactControl />
       <h3>Our courses</h3>
+      <div className="list-wrapper">
+        <CoursesList />
+      </div>
     </div>
   );
 }
