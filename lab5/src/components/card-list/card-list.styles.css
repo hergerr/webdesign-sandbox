@@ -1,0 +1,11 @@
+.CardList-container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.CardList-card {
+    margin: 70px 80px;
+}

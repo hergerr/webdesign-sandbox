@@ -7,6 +7,7 @@ export const SearchBox = (props) => (
             className="SearchBox-searchbox"
             type="search"
             placeholder="Filter our customers"
+            onChange={props.handleChange}
         />
     </div>
 )
