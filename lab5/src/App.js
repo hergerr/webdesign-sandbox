@@ -6,8 +6,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { HomePage } from './components/home-page/home-page.component'
-import { CustomersPage } from './components/customers-page/customers-page.component'
+import { HomePage } from './pages/home-page/home-page.component'
+import { CustomersPage } from './pages/customers-page/customers-page.component'
 
 function App() {
   return (

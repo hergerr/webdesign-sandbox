@@ -1,8 +1,8 @@
 import React from 'react'
 import './home-page.styles.css'
-import { LoginRegisterBox } from '../login-register-box/login-register-box.component';
-import { ContactControl } from '../contact-control/contact-control.component';
-import { CoursesList } from '../courses-list/courses-list.component';
+import { LoginRegisterBox } from '../../components/login-register-box/login-register-box.component';
+import { ContactControl } from '../../components/contact-control/contact-control.component';
+import { CoursesList } from '../../components/courses-list/courses-list.component';
 
 export const HomePage = () => (
     <div className="HomePage-container">

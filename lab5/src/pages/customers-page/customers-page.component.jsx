@@ -1,6 +1,6 @@
 import React from 'react';
 import './customers-page.styles.css';
-import { SearchBox } from '../search-box/search-box.component';
+import { SearchBox } from '../../components/search-box/search-box.component';
 
 class CustomersPage extends React.Component {
     render() {
