@@ -8,6 +8,7 @@ class CustomersPage extends React.Component {
             <div className="Customer-container">
                 <h3>Our Customers</h3>
                 <SearchBox />
+                {/* <Card src={photo} desc="HSBC"/> */}
             </div>
         )
     }
