@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import { HomePage } from './components/home-page/home-page.component'
+import { CustomersPage } from './components/customers-page/customers-page.component'
 
 function App() {
   return (
@@ -16,13 +17,13 @@ function App() {
           <nav className="App-nav">
             <ul>
               <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
                 <Link to="/about">About</Link>
               </li>
               <li>
-                <Link to="/users">Users</Link>
+                <Link to="/customers">Our customers</Link>
+              </li>
+              <li>
+                <Link to="/">Home</Link>
               </li>
             </ul>
           </nav>
@@ -33,8 +34,8 @@ function App() {
             <Route path="/about">
               {/* <HomePage/> */}
             </Route>
-            <Route path="/users">
-              {/* <Users /> */}
+            <Route path="/customers">
+              <CustomersPage />
             </Route>
             <Route path="/">
               <HomePage />

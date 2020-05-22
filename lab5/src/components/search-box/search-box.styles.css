@@ -1,0 +1,20 @@
+.SearchBox-container {
+    text-align: center;
+
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+ 
+ :-moz-placeholder { /* Firefox 18- */
+    text-align: center;  
+ }
+
+.SearchBox-searchbox{
+    border-radius: 20px;
+    width: 500px;
+    height: 50px;
+    background-color: #C2C3C5;
+    text-align: center;
+}

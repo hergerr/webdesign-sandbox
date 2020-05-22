@@ -1,47 +1,47 @@
 .HomePage-logo {
-    margin: 0;
-    font-family: 'Francois One', sans-serif;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 35px;
-    letter-spacing: -5px;
-  }
-  
-  .HomePage-title {
-    text-align: center;
-    font-size: 40px;
-    display: block;
-    margin-top: 50px;
-  }
-  
-  .HomePage-description {
-    max-width: 700px;
-    font-size: 18px;
-    margin: 100px auto;
-    text-align: justify;
-    font-family: 'Lato', sans-serif;
-  }
-  
-  .HomePage-login-register {
-    margin: 0 auto;
-  }
-  
-  h3 {
-    text-align: center;
-    font-size: 30px;
-    margin-top: 50px;
-  }
-  
-  .HomePage-list-wrapper {
-    max-width: 250px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  ul {
-    text-align: left;
-    list-style: inside;
-  }
+  margin: 0;
+  font-family: 'Francois One', sans-serif;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 35px;
+  letter-spacing: -5px;
+}
+
+.HomePage-title {
+  text-align: center;
+  font-size: 40px;
+  display: block;
+  margin-top: 50px;
+}
+
+.HomePage-description {
+  max-width: 700px;
+  font-size: 18px;
+  margin: 100px auto;
+  text-align: justify;
+  font-family: 'Lato', sans-serif;
+}
+
+.HomePage-login-register {
+  margin: 0 auto;
+}
+
+.HomePage-container h3 {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+.HomePage-list-wrapper {
+  max-width: 250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.HomePage-container ul {
+  text-align: left;
+  list-style: inside;
+}
