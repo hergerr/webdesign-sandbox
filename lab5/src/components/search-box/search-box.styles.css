@@ -18,3 +18,7 @@
     background-color: #C2C3C5;
     text-align: center;
 }
+
+input.SearchBox-searchbox:focus {
+    outline-width: 0;
+}

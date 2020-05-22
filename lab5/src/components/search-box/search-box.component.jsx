@@ -5,7 +5,6 @@ export const SearchBox = (props) => (
     <div className="SearchBox-container">
         <input
             className="SearchBox-searchbox"
-            type="search"
             placeholder="Filter our customers"
             onChange={props.handleChange}
         />
