@@ -1,11 +1,13 @@
 import './about-page.styles.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GenericButton } from '../../components/generic-button/generic-button.component';
 
 export const AboutPage = (props) => {
     const [wrapText, setWrapText] = useState(true);
 
-    // this.handleChange =
+    useEffect(()=> {
+        document.title = `wrapText: ${wrapText}`;
+    })
 
     let moreText;
     let buttonValue = "More";
