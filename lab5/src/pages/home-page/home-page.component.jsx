@@ -6,7 +6,6 @@ import { CoursesList } from '../../components/courses-list/courses-list.componen
 
 export const HomePage = () => (
     <div className="HomePage-container">
-        <p className="HomePage-logo">LG</p>
         <title className="HomePage-title">Learn German!</title>
         <p className="HomePage-description">
             Hi! This is an app which helps you to learn german language.

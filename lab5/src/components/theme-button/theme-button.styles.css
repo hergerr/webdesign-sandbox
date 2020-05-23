@@ -1,0 +1,12 @@
+.ThemeButton {
+    background-color: #21252B;
+    border-radius: 5px;
+    border: 1px solid #C2C3C5;
+    color: #C2C3C5;
+    padding: 5px;
+}
+
+.ThemeButton:focus {
+    outline: none;
+    box-shadow: none;
+  }

@@ -1,4 +1,4 @@
-button {
+.button {
     background-color: #25292F;
     border: 1px solid white;
     border-radius: 10px;
@@ -8,6 +8,6 @@ button {
     font-weight: bolder;
 }
 
-button:focus {
+.button:focus {
     outline: 0;
 }

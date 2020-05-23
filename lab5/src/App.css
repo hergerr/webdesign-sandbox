@@ -21,3 +21,13 @@
   padding: 1px 16px;
   text-decoration: none;
 }
+
+.App-logo {
+  margin: 0;
+  font-family: 'Francois One', sans-serif;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 35px;
+  letter-spacing: -5px;
+}
