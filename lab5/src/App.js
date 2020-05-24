@@ -19,9 +19,6 @@ function App() {
         <div>
           <nav className="App-nav">
             <ul>
-            {/* <li>
-              <ThemeButton></ThemeButton>
-            </li> */}
               <li>
                 <Link to="/about">About</Link>
               </li>

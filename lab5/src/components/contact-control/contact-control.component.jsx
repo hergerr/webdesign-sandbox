@@ -23,7 +23,7 @@ class ContactControl extends React.Component {
             contact_info = <p className="contact">
                 <b>Email: </b>contact@learngerman.com <br/>
             <b>Phone number:</b> 123 456 789 <br/>
-            <b>Adress:</b> Unten den Linder 23, Mitte, Berlin <br/>
+            <b>Adress:</b> Unten den Linden 23, Mitte, Berlin <br/>
         </p>
         }
 
