@@ -4,6 +4,7 @@ $primary-color: #f00;
 body {
     h1 {
         color: $header-color;
+        text-align: center;
     }
     p {
         color: $primary-color;
