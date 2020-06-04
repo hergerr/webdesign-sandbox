@@ -10,7 +10,14 @@
   "author": "Tymoteusz Frankiewicz",
   "license": "ISC",
   "dependencies": {
-    "webpack": "^4.43.0",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
     "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {
+    "sass": "^1.26.7",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.43.0"
   }
 }

@@ -1,0 +1,11 @@
+$header-color: #55f;
+$primary-color: #f00;
+
+body {
+    h1 {
+        color: $header-color;
+    }
+    p {
+        color: $primary-color;
+    }
+}
