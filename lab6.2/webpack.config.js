@@ -31,11 +31,17 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader',
+                ],
+            },
         ],
     },
 
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         port: 9000,
-      }
+    }
 };
