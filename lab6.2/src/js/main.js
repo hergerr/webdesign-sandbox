@@ -14,10 +14,4 @@ function getPeople (){
     })
 }
 
-// location = document.getElementById("location");
-
-// let interval = setInterval(function() {
-//     getCoords().then(data => console.log(data));
-// }, 1000);
-
 module.exports = { getCoords:getCoords, getPeople: getPeople };
