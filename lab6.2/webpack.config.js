@@ -41,6 +41,7 @@ module.exports = {
     },
 
     devServer: {
+        host: '0.0.0.0',
         contentBase: path.join(__dirname, 'dist'),
         port: 8080,
     }
