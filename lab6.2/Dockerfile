@@ -1,9 +1,9 @@
 FROM node:latest
 
-WORKDIR /app
-COPY package-lock.json package.json 
-RUN npm install
-
-ENV PORT=8080
 EXPOSE 8080
-CMD ["npm", "run", "start:dev"]
+WORKDIR /app
+COPY package-lock.json package.json ./
+RUN npm install --no-progress --ignore-optional
+COPY . ./
+
+CMD npm run start:dev
