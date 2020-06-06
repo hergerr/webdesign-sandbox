@@ -19,7 +19,7 @@ let server = http.createServer(function (req, res) {
 
         res.writeHead(200, { 'Content-Type': 'text/html' });
         let date = new Date();
-        res.write(`${date.getHours()}:${date.getMinutes()}, ${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`);
+        res.write(`${date.getHours() + 2}:${date.getMinutes()}, ${date.getDay()}-${date.getMonth()}-${date.getFullYear()}`);
         res.end();
 
     }
